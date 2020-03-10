@@ -18,14 +18,29 @@
 
 set -o nounset
 
-user_args=
 subn=
 exfile=
+matchip='^([[:digit:]]{1,3}\.){3}' # ^([[:digit:]]{1,3}\.){3} to match ip subnet
 
-while getopts "s:subnet:" args
+
+# Define the help(usage function)
+function usage() {
+
+	cat <<EOF
+		$(basename $0) options
+			Usage: $(basename $0) <[options]>
+			Options:
+				-s	Define the subnet
+				-h	Show this message
+
+
+EOF
+}
+
+while getopts ":s:" args
 do
 	case "$args" in
-		-s | --subnet )
+		s)
 			subn=$1
 			;;
 #		-f | --file )
