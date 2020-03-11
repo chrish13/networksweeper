@@ -1,10 +1,10 @@
-.\" Manpage for sunetsweep
+.\" Manpage for networksweeper
 .\" Contact chrish13@gmail.com
-.TH man 8 "11 March 2020" "1.0" "subnetsweep man page"
+.TH man 8 "11 March 2020" "1.0" "networksweeper man page"
 .SH NAME
-subnetsweep \- A fast network sweeper
+networksweeper \- A fast network sweeper
 .SH SYNOPSIS
-subnetsweep [subnet]
+networksweeper [subnet]
 .SH DESCRIPTION
 I need to put a description.
 .SH OPTIONS

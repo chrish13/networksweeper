@@ -2,25 +2,23 @@
 
 #=============================================================================#
 #									      #
-#		FILE:							      #
-#	       USAGE:							      #
-#	 DESCRIPTION:							      #
+#		FILE: ./networksweeper.sh				      #
+#	       USAGE: networksweeper [options] subnet (f.e 192.168.0.)	      #
+#	 DESCRIPTION: A fast ping network sweeper to scan a network for       #
+#		      live hosts					      #
 #									      #
 #									      #
-#	     OPTIONS:							      #
-#	       NOTES:							      #
+#	     OPTIONS: -s [subnet] -h [help] -V [version]		      #
+#	       NOTES: This is my first attempt to publish one of my tools     #
 #									      #
 #	      AUTHOR: Chris Hatzis					      #
-#	     CREATED:							      #
+#	     CREATED: 10 March 2020					      #
 #	    REVISION:							      #
 #									      #
 #=============================================================================#
 
 set -o nounset
-
-version=1.0
 subn=
-exfile=
 matchip='^([[:digit:]]{1,3}\.){3}' # ^([[:digit:]]{1,3}\.){3} to match ip subnet
 
 function mysweeper() {
@@ -30,7 +28,6 @@ function mysweeper() {
 		ping -4 -c 1 -w 1 -i 0.2 "$1""$ip" | grep "64 bytes"  | \
 		cut --delimiter=" " --fields=4 | cut --delimiter=":" --fields=1
 	done
-
 }
 
 function myversion() {
@@ -50,6 +47,14 @@ function usage() {
 
 EOF
 }
+
+for o in $@
+do
+	if [[ $o =~ $matchip ]]
+	then
+ 		subn=$o
+ 	fi
+done
 
 while getopts ":s:h:V" args
 do
@@ -71,4 +76,3 @@ do
 done
 
 mysweeper $subn
-#printf "the first argument is $1\n"
