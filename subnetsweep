@@ -1,0 +1,17 @@
+.\" Manpage for sunetsweep
+.\" Contact chrish13@gmail.com
+.TH man 8 "11 March 2020" "1.0" "subnetsweep man page"
+.SH NAME
+subnetsweep \- A fast network sweeper
+.SH SYNOPSIS
+subnetsweep [subnet]
+.SH DESCRIPTION
+I need to put a description.
+.SH OPTIONS
+I need to put the options here.
+.SH SEE ALSO
+ping(8)
+.SH BUGS
+No known bugs so far.
+.SH AUTHOR
+Chris Hatzis (chrish13@gmail.com)

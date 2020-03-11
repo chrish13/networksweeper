@@ -18,10 +18,24 @@
 
 set -o nounset
 
+version=1.0
 subn=
 exfile=
 matchip='^([[:digit:]]{1,3}\.){3}' # ^([[:digit:]]{1,3}\.){3} to match ip subnet
 
+function mysweeper() {
+	
+	for ip in $(seq 1 254)
+	do
+		ping -4 -c 1 -w 1 -i 0.2 "$1""$ip" | grep "64 bytes"  | \
+		cut --delimiter=" " --fields=4 | cut --delimiter=":" --fields=1
+	done
+
+}
+
+function myversion() {
+	printf "$(basename $0 | cut --delimiter="." --fields=1) 1.0\n"
+}
 
 # Define the help(usage function)
 function usage() {
@@ -32,33 +46,29 @@ function usage() {
 			Options:
 				-s	Define the subnet
 				-h	Show this message
-
+				-V	Show version and exit
 
 EOF
 }
 
-while getopts ":s:" args
+while getopts ":s:h:V" args
 do
 	case "$args" in
 		s)
-			subn=$1
+			subn=${OPTARG}
 			;;
 #		-f | --file )
-#			shift
-#			exfile=$1
 #			;;
-#		-h | --help )
-#			printf "Apologies. No help right now.\n"
-#			exit
-#			;;
-		* )
+		V)
+			myversion
 			exit
+			;;
+		h | *)
+			usage
+			exit
+			;;
 	esac
 done
 
-printf "the first argument is $1\n"
-
-for ip in $(seq 1 254);
-do
-	ping -4 -c 1 -w 1 -i 0.2 "$subn"."$ip" | grep "64 bytes"  | cut --delimiter=" " --fields=4 | cut --delimiter=":" --fields=1
-done
+mysweeper $subn
+#printf "the first argument is $1\n"
