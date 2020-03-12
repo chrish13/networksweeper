@@ -2,7 +2,7 @@
 > A simple script/program created with bash.
 
 ## Table of Contents
-* [General Info]{#general-info}
+* [General Info](#general-info)
 * Technologies
 * Installation
 * Usage
