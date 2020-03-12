@@ -2,7 +2,7 @@
 > A simple script/program created with bash.
 
 ## Table of Contents
-* [General Info] {#general_info}
+* [General Info]{#general-info}
 * Technologies
 * Installation
 * Usage
@@ -11,7 +11,7 @@
 * Credits
 * License
 
-## General Info {#general_info}
+## General Info
 This tool is based on ping command that comes with \*nix systems and not the MS
 Windows version. 
 I made it mostly to expiriment with my scripting skills and create a more all in-
