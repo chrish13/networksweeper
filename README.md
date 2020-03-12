@@ -3,9 +3,9 @@
 
 ## Table of Contents
 * [General Info](#general-info)
-* Technologies
-* Installation
-* Usage
+* [Technologies](#technologies) 
+* [Installation](#installation)
+* [Usage](#usage)
 * Status
 * Contributing
 * Credits
@@ -29,4 +29,10 @@ Chris Hatzis
 >### Pre-requirments
 >	* Gnu bash 
 >	* git (for cloning this project)
+
+Basically create a folder somewhere within your home directory and clone this project in it.
+```bash
+	mkdir foofolder
+	git clone https://github.com/chrish13/networksweeper.git ./foofolder
+```
 
